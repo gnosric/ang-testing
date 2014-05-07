@@ -6,7 +6,7 @@ angular.module('project', ['ngRoute', 'firebase'])
   return $firebase(new Firebase(fbURL));
 })
  
-.config(function($routeProvider) {
+.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {
       controller:'ListCtrl',
