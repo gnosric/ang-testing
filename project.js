@@ -8,22 +8,22 @@ angular.module('project', ['ngRoute', 'firebase'])
  
 .config(function($locationProvider, $routeProvider) {
   $locationProvider.html5Mode(true);
-  
+
   $routeProvider
     .when('/', {
       controller:'ListCtrl',
-      templateUrl:'list.html'
+      templateUrl:'angular/list.html'
     })
     .when('/edit/:projectId', {
       controller:'EditCtrl',
-      templateUrl:'detail.html'
+      templateUrl:'angular/detail.html'
     })
     .when('/new', {
       controller:'CreateCtrl',
-      templateUrl:'detail.html'
+      templateUrl:'angular/detail.html'
     })
     .otherwise({
-      redirectTo:'/'
+      redirectTo:'/angular'
     });
 })
  
