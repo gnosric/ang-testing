@@ -6,7 +6,9 @@ angular.module('project', ['ngRoute', 'firebase'])
   return $firebase(new Firebase(fbURL));
 })
  
-.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+.config(function($locationProvider, $routeProvider) {
+  $locationProvider.html5Mode(true);
+  
   $routeProvider
     .when('/', {
       controller:'ListCtrl',
@@ -23,9 +25,7 @@ angular.module('project', ['ngRoute', 'firebase'])
     .otherwise({
       redirectTo:'/'
     });
-
-    $locationProvider.html5Mode(true);
-}]);
+})
  
 .controller('ListCtrl', function($scope, Projects) {
   $scope.projects = Projects;
