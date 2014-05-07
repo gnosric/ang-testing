@@ -25,7 +25,7 @@ angular.module('project', ['ngRoute', 'firebase'])
     });
 
     $locationProvider.html5Mode(true);
-})
+}]);
  
 .controller('ListCtrl', function($scope, Projects) {
   $scope.projects = Projects;
