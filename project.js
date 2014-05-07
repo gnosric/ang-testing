@@ -5,25 +5,27 @@ angular.module('project', ['ngRoute', 'firebase'])
 .factory('Projects', function($firebase, fbURL) {
   return $firebase(new Firebase(fbURL));
 })
- 
-.config(function($locationProvider, $routeProvider) {
-  $locationProvider.html5Mode(true);
 
+config(function($locationProvider) {
+    $locationProvider.html5Mode(true);
+  });
+   
+.config(function($routeProvider) {
   $routeProvider
     .when('/', {
       controller:'ListCtrl',
-      templateUrl:'angular/list.html'
+      templateUrl:'list.html'
     })
     .when('/edit/:projectId', {
       controller:'EditCtrl',
-      templateUrl:'angular/detail.html'
+      templateUrl:'detail.html'
     })
     .when('/new', {
       controller:'CreateCtrl',
-      templateUrl:'angular/detail.html'
+      templateUrl:'detail.html'
     })
     .otherwise({
-      redirectTo:'/angular'
+      redirectTo:'/'
     });
 })
  
